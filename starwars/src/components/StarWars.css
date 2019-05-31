@@ -1,0 +1,35 @@
+
+.characterList{
+    display:flex;
+    justify-content:space-evenly;
+    flex-direction:column;
+    width:80%;
+    margin:5% 10%;
+}
+.character{
+    display:flex;
+    flex-direction:column;
+    background-color:inherit;
+    margin:2% 15%;
+    width:70%;
+    border-radius:10px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)
+}
+.character p{
+    color:black;
+}
+.character a{
+    text-decoration:none;
+    color:teal;
+}
+
+@media (max-width: 600px){
+    .characterList{
+        width:90%;
+        margin:5%;
+    }
+    .character{
+        width:90%;
+        margin:2% 5%;
+    }
+}
