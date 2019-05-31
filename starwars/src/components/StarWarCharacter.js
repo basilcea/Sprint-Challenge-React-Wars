@@ -1,17 +1,17 @@
 import React from 'react';
 
-const StarWarCharacter = (props) =>{
+const StarWarCharacter = ({name ,gender,height ,mass , eyeColor, hairColor ,skinColor , url}) =>{
     return (
         <div>
-            <h2>Name:{props.name}</h2>
+            <h2>Name:{name}</h2>
             <div>
-                <p>Gender: {props.gender}</p>
-                <p>Height: {props.height}</p>
-                <p>Mass: {props.mass}</p>
-                <p>Eye Color: {props.eyeColor}</p>
-                <p>Hair Color: {props.hairColor}</p>
-                <p>Skin Color: {props.skinColor}</p>
-                <p><a href ={props.url} alt =''>Learn More about {props.name} </a></p>
+                <p>Gender: {gender}</p>
+                <p>Height: {height}</p>
+                <p>Mass: {mass}</p>
+                <p>Eye Color: {eyeColor}</p>
+                <p>Hair Color: {hairColor}</p>
+                <p>Skin Color: {skinColor}</p>
+                <p><a href ={url} alt =''>Learn More about {name} </a></p>
             </div>
         </div>
     )
