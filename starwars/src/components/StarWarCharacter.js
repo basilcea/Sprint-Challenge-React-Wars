@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './StarWars.css';
 
 const StarWarCharacter = ({name ,gender,height ,mass , eyeColor, hairColor ,skinColor , url}) =>{
     return (

@@ -1,9 +1,11 @@
 import React from 'react';
 import Characters from './StarWarCharacter';
+import './StarWars.css';
 
 const StarWarsList = ({list} ) => {
     return(
-        <div>
+        <div className ='characterList'>
+            <h1>Star Wars Characters</h1>
             {list.map(todo => <Characters key={todo.url} 
                 name={todo.name}
                 gender={todo.gender} 
