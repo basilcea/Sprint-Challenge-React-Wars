@@ -1,17 +1,18 @@
 import React from 'react';
 
+
 const StarWarCharacter = ({name ,gender,height ,mass , eyeColor, hairColor ,skinColor , url}) =>{
     return (
-        <div>
-            <h2>Name:{name}</h2>
-            <div>
+        <div className='character'>
+            <h2>{name}</h2>
+            <div className = 'details'>
                 <p>Gender: {gender}</p>
                 <p>Height: {height}</p>
                 <p>Mass: {mass}</p>
                 <p>Eye Color: {eyeColor}</p>
                 <p>Hair Color: {hairColor}</p>
                 <p>Skin Color: {skinColor}</p>
-                <p><a href ={url} alt =''>Learn More about {name} </a></p>
+                <p><a href ={url} alt =''>More About {name} </a></p>
             </div>
         </div>
     )

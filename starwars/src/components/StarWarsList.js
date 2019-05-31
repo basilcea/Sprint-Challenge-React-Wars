@@ -1,18 +1,18 @@
 import React from 'react';
 import Characters from './StarWarCharacter';
 
-const StarWarsList = ({List ,name ,gender, height ,mass , eyeColor, hairColor ,skinColor , url} ) => {
+const StarWarsList = ({list} ) => {
     return(
         <div>
-            {List.map(todo => <Characters key={todo.url} 
-                name={name}
-                gender={gender} 
-                height ={height}
-                mass={mass}
-                eyeColor ={eyeColor}
-                hairColor ={hairColor}
-                skinColor ={skinColor}
-                url ={url} /> )}
+            {list.map(todo => <Characters key={todo.url} 
+                name={todo.name}
+                gender={todo.gender} 
+                height ={todo.height}
+                mass={todo.mass}
+                eyeColor ={todo.eye_color}
+                hairColor ={todo.hair_color}
+                skinColor ={todo.skin_olor}
+                url ={todo.url} /> )}
         </div>
     )
 
