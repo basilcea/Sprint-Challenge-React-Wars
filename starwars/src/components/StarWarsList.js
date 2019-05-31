@@ -2,7 +2,7 @@ import React from "react";
 import Characters from "./StarWarCharacter";
 import "./StarWars.css";
 
-const StarWarsList = ({ list  , nextPage , previousPage}) => {
+const StarWarsList = ({ list  , nextPage , previousPage,next ,previous}) => {
   return (
     <div className="characterList">
       <h1>Star Wars Characters</h1>
@@ -20,8 +20,8 @@ const StarWarsList = ({ list  , nextPage , previousPage}) => {
         />
       ))}
       <div>
-      <button onClick={() =>previousPage}>Previous</button>
-      <button onClick={() =>nextPage}>Next</button>
+      { previous ? <button onClick={() =>previousPage(previous)}>Previous</button> : null}
+      {next ? <button onClick={() =>nextPage(next)}>Next</button> :null}
       </div>
     </div>
   );

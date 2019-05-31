@@ -50,7 +50,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1 className="Header">React Wars</h1>
-        <WarsList list={this.state.starwarsChars}  nextPage={this.nextPage}  previousPage ={this.previousPage} />
+        <WarsList list={this.state.starwarsChars}  nextPage={this.nextPage}  previousPage ={this.previousPage} next={this.state.next} previous={this.state.previous} />
       </div>
     );
   }
