@@ -1,3 +1,11 @@
+
+.characterList{
+    display:flex;
+    justify-content:space-evenly;
+    flex-direction:column;
+    width:80%;
+    margin:5% 10%;
+}
 .character{
     display:flex;
     flex-direction:column;
@@ -14,13 +22,7 @@
     text-decoration:none;
     color:teal;
 }
-.characterList{
-    display:flex;
-    justify-content:space-evenly;
-    flex-direction:column;
-    width:80%;
-    margin:5% 10%;
-}
+
 @media (max-width: 600px){
     .characterList{
         width:90%;
