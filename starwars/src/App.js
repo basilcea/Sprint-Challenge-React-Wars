@@ -1,21 +1,24 @@
 import React, { Component } from "react";
-import WarsList from "./components/StarWarsList";
 import "./App.css";
-
+import WarsList from './components/StarWarsList';
 class App extends Component {
+
   constructor() {
     super();
     this.state = {
       starwarsChars: [],
       next:null,
       previous:null,
+      selected:[],
+      loading:true
     };
   }
 
   componentDidMount() {
-    this.getCharacters("https://swapi.co/api/people/");
+    setTimeout(()=> this.getCharacters("https://swapi.co/api/people/"),5000)
+    
   }
-
+ 
   getCharacters = URL => {
     // feel free to research what this code is doing.
     // At a high level we are calling an API to fetch some starwars data from the open web.
@@ -29,29 +32,51 @@ class App extends Component {
           starwarsChars: data.results ,
           next: data.next ,
           previous:data.previous,
+          loading:false,
         });
-        console.log(data)
       })
       .catch(err => {
         throw new Error(err);
       });
   };
-  nextPage = ()=>{
-    return this.getCharacters(this.state.next)
-
+  nextPage = (e)=>{
+    return this.getCharacters(e)
   }
-  previousPage =() =>{
-    return this.getCharacters(this.state.previous)
-
-
+  previousPage =(e) =>{
+    return this.getCharacters(e)
   }
-
+  toggle =(e) =>{
+    const selectedChar = this.state.starwarsChars.find(starwarsChar => starwarsChar.url === e )
+    const newSelected = Object.assign({} ,this.state );
+    if(newSelected.selected.includes(selectedChar.url)){
+      const index = newSelected.selected.indexOf(selectedChar.url)
+      newSelected.selected.pop(index)
+      this.setState({
+         selected:newSelected.selected
+       })
+    }
+    else{
+      newSelected.selected.push(selectedChar.url)
+      this.setState({
+           selected:newSelected.selected
+        })
+    }
+}
   render() {
     return (
+     
       <div className="App">
-        <h1 className="Header">React Wars</h1>
-        <WarsList list={this.state.starwarsChars}  nextPage={this.nextPage}  previousPage ={this.previousPage} next={this.state.next} previous={this.state.previous} />
-      </div>
+        <h1 className="Header">React Wars</h1> 
+        <WarsList 
+          loading ={this.state.loading}
+          list={this.state.starwarsChars}  
+          nextPage={this.nextPage}  
+          previousPage ={this.previousPage} 
+          next={this.state.next} 
+          previous={this.state.previous} 
+          onToggle={this.toggle} 
+          selected={this.state.selected}/>
+          </div>
     );
   }
 }
