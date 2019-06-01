@@ -1,13 +1,22 @@
 import React from "react";
-import Characters from "./StarWarCharacter";
 import "./StarWars.css";
+import Characters from './StarWarCharacter';
 
-const StarWarsList = ({ list  , nextPage , previousPage,next ,previous}) => {
+const StarWarsList = ({ list  , nextPage , previousPage,next ,previous,onToggle, selected,loading }) => {
+    const style={
+        display: loading ?'block':'none'
+    }
+    const anotherstyle={
+        display: loading ?'none':'block'
+    }
   return (
+  
     <div className="characterList">
-      <h1>Star Wars Characters</h1>
+      <div className = 'initial' style={style}>
+    </div>
+    <h1 style={anotherstyle}>Star Wars Characters</h1>
       {list.map(todo => (
-        <Characters
+        <Characters 
           key={todo.url}
           name={todo.name}
           gender={todo.gender}
@@ -17,11 +26,13 @@ const StarWarsList = ({ list  , nextPage , previousPage,next ,previous}) => {
           hairColor={todo.hair_color}
           skinColor={todo.skin_color}
           url={todo.url}
+          select={selected}
+          change={onToggle}
         />
       ))}
       <div>
-      { previous ? <button onClick={() =>previousPage(previous)}>Previous</button> : null}
-      {next ? <button onClick={() =>nextPage(next)}>Next</button> :null}
+      { previous ? <button className ='button' onClick={() =>previousPage(previous)}>Previous</button> : null}
+      {next ? <button className ='button'  onClick={() =>nextPage(next)}>Next</button> :null}
       </div>
     </div>
   );
